@@ -12,7 +12,8 @@
       "photos": [
         "assets/0.jpg"
       ],
-      "category": "Weed"
+      "category": "Weed",
+      "id": "garden-smash-burger"
     },
     {
       "name": "Hash Brown Burger",
@@ -24,7 +25,8 @@
       "photos": [
         "assets/1.jpg"
       ],
-      "category": "Hash"
+      "category": "Hash",
+      "id": "hash-brown-burger"
     },
     {
       "name": "Pepper Glaze Dog",
@@ -36,7 +38,8 @@
       "photos": [
         "assets/2.jpg"
       ],
-      "category": "Extract"
+      "category": "Extract",
+      "id": "pepper-glaze-dog"
     },
     {
       "name": "Classic American Dog",
@@ -48,7 +51,8 @@
       "photos": [
         "assets/3.jpg"
       ],
-      "category": "USA"
+      "category": "USA",
+      "id": "classic-american-dog"
     }
   ],
   "categories": [
@@ -59,5 +63,17 @@
   ],
   "banner": "",
   "avatar": "assets/rosa-nera.jpg",
-  "reviews": []
+  "reviews": [],
+  "featured": [
+    "garden-smash-burger",
+    "hash-brown-burger",
+    "pepper-glaze-dog",
+    "classic-american-dog"
+  ],
+  "categoryImages": {
+    "Weed": "assets/0.jpg",
+    "Hash": "assets/1.jpg",
+    "Extract": "assets/2.jpg",
+    "USA": "assets/3.jpg"
+  }
 }

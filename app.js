@@ -40,7 +40,7 @@ function render(){
   el('details').textContent=p.grams+' g   ·   '+price(p);
 }
 el('gallery').onclick=()=>{const p=products[index];frame=frame>=p.photos.length?(p.video?0:1):(!p.video&&!frame?2:frame+1);render()};
-function move(step){do { index=(index+step+products.length)%products.length } while(cards[index].hidden);frame=0;render()}
+function move(step){index=visible[(visible.indexOf(index)+step+visible.length)%visible.length];frame=0;render()}
 el('next').onclick=()=>move(1);
 let start;
 viewer.addEventListener('touchstart',e=>start=e.touches[0].clientY,{passive:true});
@@ -56,15 +56,25 @@ for(const [id,url] of [['tg',data.telegram],['sg',data.signal]]){
 
 const cards=[...el('grid').children];
 let selected='';
+let visible=[];
 const categories=data.categories||[];
 function filter(category){
   selected=category;
-  cards.forEach((card,i)=>card.hidden=Boolean(selected && products[i].category!==selected));
+  const featured = data.featured ?? products.slice(0,4).map(p=>p.id);
+  const picks = [...new Set(featured)].slice(0,4);
+  visible = selected ? products.map((p,i)=>p.category===selected?i:-1).filter(i=>i>=0)
+    : (data.featured ? picks.map(id=>products.findIndex(p=>p.id===id)).filter(i=>i>=0) : products.slice(0,4).map((_,i)=>i));
+  cards.forEach((card,i)=>card.hidden=!visible.includes(i));
+  visible.forEach(i=>el('grid').append(cards[i]));
+  el('sectionTitle').textContent=selected||'Featured';
+  el('count').textContent=visible.length;
   for(const button of el('categories').children) button.setAttribute('aria-pressed',String(button.textContent===selected));
 }
 for(const category of categories){
   const button=document.createElement('button');
   button.textContent=category;
+  const cover=data.categoryImages?.[category];
+  if(cover) button.style.backgroundImage='linear-gradient(0deg,#000c,transparent),url('+JSON.stringify(cover)+')';
   button.onclick=()=>filter(selected===category?'':category);
   el('categories').append(button);
 }
@@ -72,10 +82,10 @@ if(data.banner) el('hero').style.backgroundImage='linear-gradient(90deg,#000a,tr
 if(data.avatar){el('avatar').src=data.avatar;el('avatar').hidden=false}
 function switchTab(tab){
   const menu=tab==='Menu', panel=el('panel');
-  for(const id of ['grid','categories','mode','count']) el(id).hidden=!menu;
+  for(const id of ['grid','categories','mode','count','sectionTitle']) el(id).hidden=!menu;
   panel.hidden=menu;panel.replaceChildren();
-  for(const b of document.querySelectorAll('nav button')) b.setAttribute('aria-current',String(b.textContent===tab));
-  if(menu)return;
+  for(const b of document.querySelectorAll('nav button')) b.setAttribute('aria-current',String(b.dataset.tab===tab));
+  if(menu){filter('');return}
   const title=document.createElement('h2');title.textContent=tab;panel.append(title);
   if(tab==='Reviews'){
     for(const review of data.reviews||[]){
@@ -91,5 +101,5 @@ function switchTab(tab){
     panel.append(link);
   }
 }
-for(const b of document.querySelectorAll('nav button')) b.onclick=()=>switchTab(b.textContent);
+for(const b of document.querySelectorAll('nav button')) b.onclick=()=>switchTab(b.dataset.tab);
 switchTab('Menu');

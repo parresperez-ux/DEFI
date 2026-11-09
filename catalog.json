@@ -1,0 +1,50 @@
+{
+  "telegram": "https://t.me/rosanerapack",
+  "signal": "",
+  "products": [
+    {
+      "name": "Noir Reserve",
+      "grams": 5,
+      "euros": 25,
+      "description": "From the Rosa Nera collection.",
+      "poster": "assets/0.jpg",
+      "video": "",
+      "photos": [
+        "assets/0.jpg"
+      ]
+    },
+    {
+      "name": "Amber Select",
+      "grams": 10,
+      "euros": 40,
+      "description": "From the Rosa Nera collection.",
+      "poster": "assets/1.jpg",
+      "video": "",
+      "photos": [
+        "assets/1.jpg"
+      ]
+    },
+    {
+      "name": "Kraft Edition",
+      "grams": 3.5,
+      "euros": 18,
+      "description": "From the Rosa Nera collection.",
+      "poster": "assets/2.jpg",
+      "video": "",
+      "photos": [
+        "assets/2.jpg"
+      ]
+    },
+    {
+      "name": "Blanc Tin",
+      "grams": 14,
+      "euros": 55,
+      "description": "From the Rosa Nera collection.",
+      "poster": "assets/3.jpg",
+      "video": "",
+      "photos": [
+        "assets/3.jpg"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "telegram": "https://t.me/rosanerapack",
+  "signal": "",
+  "products": [
+    {
+      "name": "Garden Smash Burger",
+      "grams": 250,
+      "euros": 12,
+      "description": "Sample menu item.",
+      "poster": "assets/0.jpg",
+      "video": "",
+      "photos": [
+        "assets/0.jpg"
+      ],
+      "category": "Weed"
+    },
+    {
+      "name": "Hash Brown Burger",
+      "grams": 250,
+      "euros": 12,
+      "description": "Sample menu item.",
+      "poster": "assets/1.jpg",
+      "video": "",
+      "photos": [
+        "assets/1.jpg"
+      ],
+      "category": "Hash"
+    },
+    {
+      "name": "Pepper Glaze Dog",
+      "grams": 250,
+      "euros": 12,
+      "description": "Sample menu item.",
+      "poster": "assets/2.jpg",
+      "video": "",
+      "photos": [
+        "assets/2.jpg"
+      ],
+      "category": "Extract"
+    },
+    {
+      "name": "Classic American Dog",
+      "grams": 250,
+      "euros": 12,
+      "description": "Sample menu item.",
+      "poster": "assets/3.jpg",
+      "video": "",
+      "photos": [
+        "assets/3.jpg"
+      ],
+      "category": "USA"
+    }
+  ],
+  "categories": [
+    "Weed",
+    "Hash",
+    "Extract",
+    "USA"
+  ],
+  "banner": "",
+  "avatar": "assets/rosa-nera.jpg",
+  "reviews": []
+}
